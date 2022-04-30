@@ -1,32 +1,59 @@
-import React, {useState} from 'react'
-import {AccordionContainer} from './style'
+import React, {useEffect, useState} from 'react'
+import {AccordionContainer, ShowMoreButton} from './style'
 import AccordionItem from './AccordionItem'
 import {AccordionDataType} from '../../types/accordion-data-type'
 
 interface AccordionProps {
-  options: AccordionDataType[];
+  options: AccordionDataType[]; // To make the component reusable it receives data to render as a prop
+  numberOfOptionsShown?: number // Also it can receive a number of options to show initially as a prop
+  title?: string // Also it can receive a title as a prop
 }
 
-const Accordion = ({ options }: AccordionProps) => {
+const Accordion = ({ options, numberOfOptionsShown = 5, title }: AccordionProps) => {
   const [activeItemId, setActiveItemId] = useState<string | null>("");
+  const [optionsShown, setOptionsShown] = useState(numberOfOptionsShown);
+  const [hasShowMore, setHasShowMore] = useState(false);
 
-  const handleClick = (id: string) => {
+
+  // Check if the accordion has more options to show to render the show more button
+  useEffect(() => {
+    if (options.length > optionsShown) {
+      setHasShowMore(true)
+    }
+  }, [])
+
+  const handleOpen = (id: string) => {
     id === activeItemId ? setActiveItemId(null) : setActiveItemId(id);
   };
 
+  const handleShowMoreOrLess = () => {
+    options.length > optionsShown
+      ? setOptionsShown(options.length)
+      : setOptionsShown(numberOfOptionsShown);
+  };
+
   const generateAccordionItems = () =>
-    options.map((item) => {
+    options.slice(0, optionsShown).map((item) => {
       return (
         <AccordionItem
           key={`accordion-item-${item.id}`}
           isOpen={item.id === activeItemId}
-          onClick={() => handleClick(item.id)}
+          onClick={() => handleOpen(item.id)}
           {...item}
         />
       );
     });
 
-  return <AccordionContainer>{generateAccordionItems()}</AccordionContainer>;
+  return (
+    <AccordionContainer>
+      {title && <h2>{title}</h2>}
+      {generateAccordionItems()}
+      {hasShowMore && (
+        <ShowMoreButton onClick={handleShowMoreOrLess}>{
+          options.length > optionsShown ? `Vis ${options.length - optionsShown} til` : 'Vis mindre'}</ShowMoreButton>
+      )}
+    </AccordionContainer>
+  );
 };
 
 export default Accordion;

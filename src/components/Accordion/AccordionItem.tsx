@@ -6,6 +6,7 @@ import {
   AccordionItemWrapper,
 } from './style'
 import {AnimatePresence} from 'framer-motion'
+import Chevron from './Chevron'
 
 interface AccordionItemProps {
   id: string;
@@ -37,12 +38,11 @@ const contentTextVariants = {
     scale: 1,
     transition: {
       ease: "easeOut",
-    }
-
+    },
   },
   closed: {
     opacity: 0,
-    scale: 0.5
+    scale: 0.5,
   },
 };
 
@@ -57,8 +57,9 @@ const AccordionItem = ({
     <AccordionItemWrapper>
       <AccordionItemButton open={isOpen} onClick={onClick}>
         {title}
+        <Chevron isOpen={isOpen} />
       </AccordionItemButton>
-      <AnimatePresence exitBeforeEnter>
+      <AnimatePresence>
         {isOpen && (
           <AccordionItemContentWrapper
             key={`${id}-content`}
