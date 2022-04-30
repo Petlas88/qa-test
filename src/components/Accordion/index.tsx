@@ -7,7 +7,7 @@ interface AccordionProps {
   options: AccordionDataType[];
 }
 
-const Accordion = ({options}: AccordionProps) => {
+const Accordion = ({ options }: AccordionProps) => {
   const [activeItemId, setActiveItemId] = useState<string | null>("");
 
   const handleClick = (id: string) => {
@@ -19,10 +19,9 @@ const Accordion = ({options}: AccordionProps) => {
       return (
         <AccordionItem
           key={`accordion-item-${item.id}`}
-          title={item.title}
-          content={item.content}
           isOpen={item.id === activeItemId}
           onClick={() => handleClick(item.id)}
+          {...item}
         />
       );
     });
