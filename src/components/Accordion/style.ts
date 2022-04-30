@@ -2,11 +2,11 @@ import {motion} from 'framer-motion'
 import styled from 'styled-components'
 
 interface AccordionItemButtonProps {
-  isOpen: boolean
+  open: boolean;
 }
 
 interface AccordionItemContentProps {
-  isOpen: boolean
+  open: boolean;
 }
 
 export const AccordionContainer = styled.div`
@@ -14,48 +14,48 @@ export const AccordionContainer = styled.div`
   flex-direction: column;
   width: 90%;
   max-width: 500px;
-`
+`;
 
-export const AccordionItemWrapper = styled.div`
+export const AccordionItemWrapper = styled(motion.div)`
+  border-radius: 8px;
   margin-bottom: 10px;
-`
-export const AccordionItemButton = styled(motion.button)<AccordionItemButtonProps>`
+  background-color: #f6f6f6;
+  overflow: hidden;
+`;
+
+export const AccordionItemButton = styled.button<AccordionItemButtonProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background-color: transparent;
   width: 100%;
-  padding: 20px 15px;
+  padding: 20px;
   border: none;
-  border-radius: 5px;
   font-size: 20px;
-  background-color: ${props => props.isOpen ? '#e3bcf3' : '#f5f5f5'};
+  color: ${(props) => (props.open ? '#a829cb' : '#333')};
   cursor: pointer;
   outline: none;
   transition: all 0.3s ease;
 
-  &:hover {
-    background-color: #e3bcf3;
-  }
-
+  &:hover,
   &:focus {
-    background-color: #e3bcf3;
+    color: #a829cb;
   }
-`
+`;
 
-export const AccordionItemContentWrapper = styled(motion.div)<AccordionItemContentProps>`
-  display: flex;
-  flex-direction: column;
+export const AccordionItemContentWrapper = styled(
+  motion.div
+)<AccordionItemContentProps>`
   width: 100%;
   overflow: hidden;
-  transition: all 0.3s ease;
-  padding: 10px;
-  max-height: ${props => props.isOpen ? '1000px' : '0'};
-  border-radius: 5px;
-`
+  padding-left: 20px;
+  padding-right: 20px;
+`;
 
-export const AccordionItemContentText = styled.p`
-  margin-top: 0;
+export const AccordionItemContentText = styled(motion.p)`
+  margin: 0;
   font-size: 16px;
   line-height: 1.25;
+  padding-bottom: 20px;
   color: #333;
-`
+`;
