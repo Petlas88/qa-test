@@ -19,7 +19,7 @@ export const AccordionContainer = styled.div`
 export const AccordionItemWrapper = styled(motion.div)`
   border-radius: 8px;
   margin-bottom: 10px;
-  background-color: #f6f6f6;
+  background-color: #f3f3f3;
   overflow: hidden;
 `;
 
@@ -58,4 +58,23 @@ export const AccordionItemContentText = styled(motion.p)`
   line-height: 1.25;
   padding-bottom: 20px;
   color: #333;
+`;
+
+export const ShowMoreButton = styled.button`
+  background-color: transparent;
+  width: 100%;
+  padding: 20px;
+  border: 1px solid #a829cb;
+  border-radius: 4px;
+  font-size: 20px;
+  color: #a829cb;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    background-color: #a829cb;
+  }
 `;
