@@ -41,6 +41,10 @@ export const AccordionItemButton = styled.button<AccordionItemButtonProps>`
   &:focus {
     color: #a829cb;
   }
+  
+  @media (max-width: 768px) {
+    font-size: 16px;
+  }
 `;
 
 export const AccordionItemContentWrapper = styled(

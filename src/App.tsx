@@ -4,6 +4,7 @@ import {Column} from './components/base/Column'
 import {PageWrapper} from './components/base/PageWrapper'
 import {StyledA} from './components/base/StyledA'
 import {accordionData} from './utils/accordion-data'
+import useMediaQuery from './hooks/useMediaQuery'
 
 const App = () => {
   const linkHoverAndFocus = {
@@ -11,15 +12,18 @@ const App = () => {
     transition: { type: "spring", stiffness: 900 },
   };
 
+  const isTabletOrSmaller = useMediaQuery("(max-width: 768px)");
+  const accordionPositionText = isTabletOrSmaller ? "nedenfor" : "til høyre";
+
   return (
     <PageWrapper>
       <Column>
         <div>
           <h2>Hei og velkommen! 👋</h2>
           <p>
-            I menyen til høyre kan du finne svar på ofte stilte spørsmål. Om du
-            allikevel ikke skulle finne svarene du leter etter, kan du kontakte
-            oss på telefon{" "}
+            I menyen {accordionPositionText} kan du finne svar på ofte stilte
+            spørsmål. Om du allikevel ikke skulle finne svarene du leter etter,
+            kan du kontakte oss på telefon{" "}
             <StyledA
               href={"tel:+4799999999"}
               whileHover={linkHoverAndFocus}
