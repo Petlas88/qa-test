@@ -2,8 +2,5 @@
   "baseUrl": "http://localhost:3000",
   "defaultCommandTimeout": 20000,
   "viewportHeight": 880,
-  "viewportWidth": 1280,
-  "retries": {
-    "runMode": 3
-  }
+  "viewportWidth": 1280
 }
