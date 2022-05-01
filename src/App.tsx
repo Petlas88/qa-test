@@ -5,6 +5,7 @@ import {PageWrapper} from './components/base/PageWrapper'
 import {StyledA} from './components/base/StyledA'
 import {accordionData} from './utils/accordion-data'
 import useMediaQuery from './hooks/useMediaQuery'
+import faqImage from './assets/faq.svg'
 
 const App = () => {
   const linkHoverAndFocus = {
@@ -44,7 +45,7 @@ const App = () => {
             .
           </p>
         </div>
-        <img src="faq.svg" alt="spørsmål" style={{ width: "100%" }} />
+        <img src={faqImage} alt="spørsmål" style={{ width: "100%" }} />
       </Column>
       <Column>
         <Accordion options={accordionData} title={"Ofte stilte spørsmål"} />

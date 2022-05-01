@@ -27,7 +27,7 @@ export const accordionData: AccordionDataType[] = [
   },
   {
     id: "5",
-    title: "Hvor my koster det å pusse opp badet?",
+    title: "Hvor mye koster det å pusse opp badet?",
     content:
       "Ifølge våre tall er gjennomsnittsprisen for et nytt bad bygd fra grunnen av på rundt 300.000 kroner. Da er både arbeidstimer, materiale og utstyr inkludert. Men prisnivået kan variere mye, ned mot 200.000 kroner til over 500.000 kroner.",
   },
