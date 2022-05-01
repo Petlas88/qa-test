@@ -14,6 +14,7 @@ interface AccordionItemProps {
   content: string;
   isOpen: boolean;
   onClick: () => void;
+  testId?: string;
 }
 
 const contentWrapperVariants = {
@@ -52,10 +53,15 @@ const AccordionItem = ({
   content,
   isOpen,
   onClick,
+  testId,
 }: AccordionItemProps) => {
   return (
     <AccordionItemWrapper>
-      <AccordionItemButton open={isOpen} onClick={onClick}>
+      <AccordionItemButton
+        open={isOpen}
+        onClick={onClick}
+        data-testid={`accordion-item-button-${testId}`}
+      >
         {title}
         <Chevron isOpen={isOpen} />
       </AccordionItemButton>
@@ -75,6 +81,7 @@ const AccordionItem = ({
               initial={"closed"}
               animate={"open"}
               exit={"closed"}
+              data-testid={`accordion-item-text-${testId}`}
             >
               {content}
             </AccordionItemContentText>

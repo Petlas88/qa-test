@@ -28,6 +28,7 @@ const App = () => {
               href={"tel:+4799999999"}
               whileHover={linkHoverAndFocus}
               whileFocus={linkHoverAndFocus}
+              data-testid={'phone-link'}
             >
               99999999
             </StyledA>{" "}
@@ -36,6 +37,7 @@ const App = () => {
               href={"mailto:info@faq.no"}
               whileHover={linkHoverAndFocus}
               whileFocus={linkHoverAndFocus}
+              data-testid={'email-link'}
             >
               info@faq.no
             </StyledA>

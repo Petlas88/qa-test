@@ -39,17 +39,18 @@ const Accordion = ({ options, numberOfOptionsShown = 5, title }: AccordionProps)
           key={`accordion-item-${item.id}`}
           isOpen={item.id === activeItemId}
           onClick={() => handleOpen(item.id)}
+          testId={item.id}
           {...item}
         />
       );
     });
 
   return (
-    <AccordionContainer>
+    <AccordionContainer data-testid={'accordion-container'}>
       {title && <h2>{title}</h2>}
       {generateAccordionItems()}
       {hasShowMore && (
-        <ShowMoreButton onClick={handleShowMoreOrLess}>{
+        <ShowMoreButton onClick={handleShowMoreOrLess} data-testid={'show-more-button'}>{
           options.length > optionsShown ? `Vis ${options.length - optionsShown} til` : 'Vis mindre'}</ShowMoreButton>
       )}
     </AccordionContainer>
