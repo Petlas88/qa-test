@@ -19,7 +19,7 @@ const App = () => {
     <PageWrapper>
       <Column>
         <div>
-          <h2>Hei og velkommen! 👋</h2>
+          <h1>Hei og velkommen! 👋</h1>
           <p>
             I menyen {accordionPositionText} kan du finne svar på ofte stilte
             spørsmål. Om du allikevel ikke skulle finne svarene du leter etter,

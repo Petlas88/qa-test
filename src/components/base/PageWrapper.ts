@@ -5,11 +5,11 @@ export const PageWrapper = styled.div`
   min-height: 100vh;
   width: 100%;
   max-width: 1200px;
-  padding-top: 50px;
+  padding: 50px 0;
   margin: 0 auto;
 
   @media (max-width: 768px) {
     flex-direction: column;
-    padding-top: 20px;
+    padding: 20px 0;
   }
 `;
