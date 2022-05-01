@@ -56,7 +56,7 @@ const AccordionItem = ({
   testId,
 }: AccordionItemProps) => {
   return (
-    <AccordionItemWrapper>
+    <AccordionItemWrapper open={isOpen}>
       <AccordionItemButton
         open={isOpen}
         onClick={onClick}
@@ -69,7 +69,6 @@ const AccordionItem = ({
         {isOpen && (
           <AccordionItemContentWrapper
             key={`${id}-content`}
-            open={isOpen}
             variants={contentWrapperVariants}
             initial={"closed"}
             animate={"open"}

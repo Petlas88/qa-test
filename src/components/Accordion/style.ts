@@ -1,7 +1,7 @@
 import {motion} from 'framer-motion'
 import styled from 'styled-components'
 
-interface AccordionItemButtonProps {
+interface AccordionProps {
   open: boolean;
 }
 
@@ -16,14 +16,16 @@ export const AccordionContainer = styled.div`
   max-width: 500px;
 `;
 
-export const AccordionItemWrapper = styled(motion.div)`
+export const AccordionItemWrapper = styled.div<AccordionProps>`
   border-radius: 8px;
   margin-bottom: 10px;
   background-color: #f3f3f3;
   overflow: hidden;
+  box-shadow: ${props => props.open ? '0px 0px 0px 1px #a829cb' : 'none'};
+  transition: box-shadow 0.3s ease;
 `;
 
-export const AccordionItemButton = styled.button<AccordionItemButtonProps>`
+export const AccordionItemButton = styled.button<AccordionProps>`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -49,7 +51,7 @@ export const AccordionItemButton = styled.button<AccordionItemButtonProps>`
 
 export const AccordionItemContentWrapper = styled(
   motion.div
-)<AccordionItemContentProps>`
+)`
   width: 100%;
   overflow: hidden;
   padding-left: 20px;
